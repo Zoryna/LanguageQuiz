@@ -8,18 +8,18 @@ Last modified May 16, 2018
 
 */
 
-import java.List;
+import java.util.ArrayList;
 import java.util.Arrays;
 
-public Interface Quizaroo
+public interface Quizaroo
 {
-  ArrayList inputAnswers();
+  public ArrayList inputAnswers();
 
-  int score();
+  /*public int score();
 
-  ArrayList answerSheet();
+  public ArrayList answerSheet();
 
-  ArrayList corrections();
+  public ArrayList corrections();
 
-  ArrayList retakeQuiz();
+  public ArrayList retakeQuiz(); */
 }

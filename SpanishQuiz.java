@@ -6,7 +6,7 @@ Coded by Janeen Soria
 Last modified May 16, 2018
 */
 
-import java.List;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class SpanishQuiz implements Quizaroo
