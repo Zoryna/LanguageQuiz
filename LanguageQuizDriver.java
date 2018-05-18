@@ -15,7 +15,7 @@ public class LanguageQuizDriver //implements Quizaroo
 {
   public static void main (String [] args)
   {
-    ArrayList<String> questions = new ArrayList<String>();
+    ArrayList<String> questions = new ArrayList<String>(); //make into method in interface?
     questions.add("1. How do you say 'hello?'"); //index 0, question 1
     questions.add("2. What is the verb that means 'to be?'");
     questions.add("3. What is the verb that means 'to have'");
@@ -27,22 +27,23 @@ public class LanguageQuizDriver //implements Quizaroo
     questions.add("9. Which word is in Spanish and Italian?");
     questions.add("10. Which of these does not belong?"); //index 0, question 10
 
-    //SpanishQuiz aSpanishQuiz = new SpanishQuiz();
+    SpanishQuiz aSpanishQuiz = new SpanishQuiz();
     ItalianQuiz anItalianQuiz = new ItalianQuiz();
     String chooseQuiz;
     Scanner keyboard = new Scanner (System.in);
 
     System.out.println("Do you want to take the Spanish or Italian quiz? Type 'Spanish' or 'Italian'");
     chooseQuiz = keyboard.nextLine();
-    /*if (chooseQuiz.equals("Spanish"))
+    if (chooseQuiz.equals("Spanish"))
     {
-      aSpanishQuiz.quizQuestions();
-
-    } */
-      //call SpanishQuiz..
-    if (chooseQuiz.equals("Italian"))
+      for (String element : questions) //each question would be on its own line
+      System.out.println(element);
+      aSpanishQuiz.inputAnswers();
+    }
+    else if (chooseQuiz.equals("Italian"))
     {
-      System.out.println(questions);
+      for (String element : questions)
+      System.out.println(element);
       anItalianQuiz.inputAnswers();
     }
 

@@ -13,7 +13,7 @@ public class ItalianQuiz implements Quizaroo
 {
   public ArrayList inputAnswers()
   {
-    ArrayList<String> answers = new ArrayList();
+    ArrayList<String> answers = new ArrayList<String>();
     String choice;
     Scanner keyboard = new Scanner (System.in);
 
@@ -25,7 +25,10 @@ public class ItalianQuiz implements Quizaroo
       if (answers.size() == 10) //there are only 10 questions
       break;
     }
-    System.out.println("Here are your answers: " + answers);
+    for (String element : answers)
+      System.out.println(element);
+
+
     return answers;
   }
 
