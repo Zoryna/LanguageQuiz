@@ -17,9 +17,9 @@ public interface Quizaroo
 
   public ArrayList inputAnswers();
 
-  //public int score();
+  public ArrayList answerSheet();
 
-  //public ArrayList answerSheet();
+  public int score();
 
   //public ArrayList corrections();
 

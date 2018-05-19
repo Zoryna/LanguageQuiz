@@ -16,7 +16,7 @@ public class SpanishQuiz implements Quizaroo
   {
     ArrayList<String> questions = new ArrayList<String>(Arrays.asList(
     "1. How do you say 'hello?'", //index 0, question 1
-    "A) hello B) hola C) ciao D) 'sup'",
+    "A) hello B) hola C) salve D) 'sup'",
     "2. What is the verb that means 'to be?'", //index 2
     "A) tener B) ser C) avere D) essere",
     "3. What is the verb that means 'to have'", //index 4...questions are even numbers
@@ -24,17 +24,17 @@ public class SpanishQuiz implements Quizaroo
     "4. what are the endings of the verbs?",
     "A) -ar B) -er C) -ir D) all of the above",
     "5. What are the common endings of the nouns?" ,
-    "A) o B) a C) s D) none of the above",
+    "A) o B) a C) s D) A and B",
     "6. How do you say 'and' and 'but?'",
     "A) y, pero B) y, perro C) e D) A and B",
     "7. What are some prepositions?",
     "A) a, in, per, con, di, da B) a, in, en, con, di, de C) a, en, para, por, con, de D) A and B",
     "8. What are the definite articles?",
-    "A) il/i  B) la/le  C)lo/gli, l'  D) all of the above",
+    "A) los/las  B) el/la  C)il/la  D) A and B",
     "9. Which word is in Spanish and Italian?",
     "A) pero  B) si  C) ma  D) no",
     "10. Which of these does not belong?", //index 9, question 10
-    "A) essere  B) avere  C) e  D) hola"));
+    "A) ser  B) tener  C) e  D) hola"));
 
     for (String element : questions)
       System.out.println(element);
@@ -64,20 +64,26 @@ public class SpanishQuiz implements Quizaroo
     return answers;
   }
 
-
-
-
-  /*public int score();
+  public ArrayList answerSheet() //b, b, a, d, d, a, c, d, d, c
   {
-    return null;
+    ArrayList<String> answerKey = new ArrayList<String>(Arrays.asList("b", "b", "a", "d", "d", "a", "c", "d", "d", "c"));
+
+    return answerKey;
   }
 
-  public ArrayList answerSheet();
+  public int score() //put in main?
   {
-    return null;
+    ArrayList<String> userInput = answers;
+    ArrayList<String> correctAnswers = answerKey;
+
+    correctAnswers.retainAll(userInput); //keeps only the correct answers (matched then correct)
+    //print statement for question number with answer
+
+    return correctAnswers.size();
+
   }
 
-  public ArrayList corrections();
+  /*public ArrayList corrections();
   {
     return null;
   }

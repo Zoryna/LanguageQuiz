@@ -26,11 +26,15 @@ public class LanguageQuizDriver //implements Quizaroo
     {
       aSpanishQuiz.quizQuestions();
       aSpanishQuiz.inputAnswers();
+      //aSpanishQuiz.score();
+
     }
     else if (chooseQuiz.equals("Italian"))
     {
       anItalianQuiz.quizQuestions();
       anItalianQuiz.inputAnswers();
+      //anItalianQuiz.score();
+
     }
 
 
