@@ -4,7 +4,7 @@ A quiz game to help teach
 basic Spanish and Italian
 
 Coded by Janeen Soria
-Last modified May 18, 2018
+Last modified May 21, 2018
 
 */
 
@@ -25,15 +25,19 @@ public class LanguageQuizDriver //implements Quizaroo
     if (chooseQuiz.equals("Spanish"))
     {
       aSpanishQuiz.quizQuestions();
-      aSpanishQuiz.inputAnswers();
-      //aSpanishQuiz.score();
+      /*ArrayList<String> userInput = aSpanishQuiz.inputAnswers();
+      ArrayList<String> correctAnswers = aSpanishQuiz.answerSheet();
+      userInput.removeAll(correctAnswers);
+      System.out.println("You have " + userInput.size() + " incorrect");
+      System.out.println(userInput); */
+
+      aSpanishQuiz.score();
 
     }
     else if (chooseQuiz.equals("Italian"))
     {
       anItalianQuiz.quizQuestions();
-      anItalianQuiz.inputAnswers();
-      //anItalianQuiz.score();
+      anItalianQuiz.score();
 
     }
 

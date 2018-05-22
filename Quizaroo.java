@@ -4,7 +4,7 @@ A quiz game to help teach
 basic Spanish and Italian
 
 Coded by Janeen Soria
-Last modified May 18, 2018
+Last modified May 21, 2018
 
 */
 
@@ -23,5 +23,5 @@ public interface Quizaroo
 
   //public ArrayList corrections();
 
-  //public ArrayList retakeQuiz();
+  //public ArrayList retakeQuiz(); //make it void?
 }

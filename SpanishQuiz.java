@@ -3,7 +3,7 @@ A quiz game to help teach
 basic Spanish and Italian
 
 Coded by Janeen Soria
-Last modified May 18, 2018
+Last modified May 21, 2018
 */
 
 import java.util.ArrayList;
@@ -33,7 +33,7 @@ public class SpanishQuiz implements Quizaroo
     "A) los/las  B) el/la  C)il/la  D) A and B",
     "9. Which word is in Spanish and Italian?",
     "A) pero  B) si  C) ma  D) no",
-    "10. Which of these does not belong?", //index 9, question 10
+    "10. Which of these does not belong?", //index 18, question 10
     "A) ser  B) tener  C) e  D) hola"));
 
     for (String element : questions)
@@ -71,16 +71,15 @@ public class SpanishQuiz implements Quizaroo
     return answerKey;
   }
 
-  public int score() //put in main?
+  public int score()
   {
-    ArrayList<String> userInput = answers;
-    ArrayList<String> correctAnswers = answerKey;
+    ArrayList<String> userInput = this.inputAnswers();
+    ArrayList<String> correctAnswers = this.answerSheet();
 
-    correctAnswers.retainAll(userInput); //keeps only the correct answers (matched then correct)
+    userInput.removeAll(correctAnswers); //keeps only the wrong answers (matched then correct, then removed)
     //print statement for question number with answer
-
-    return correctAnswers.size();
-
+    System.out.println("You have " + userInput.size() + " incorrect");
+    return userInput.size();
   }
 
   /*public ArrayList corrections();
