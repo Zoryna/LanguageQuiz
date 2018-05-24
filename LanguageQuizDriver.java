@@ -4,14 +4,12 @@ A quiz game to help teach
 basic Spanish and Italian
 
 Coded by Janeen Soria
-Last modified May 21, 2018
-
+Last modified May 23, 2018
 */
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
-public class LanguageQuizDriver //implements Quizaroo
+public class LanguageQuizDriver //make a while loop to retake quizzes?
 {
   public static void main (String [] args)
   {
@@ -25,18 +23,15 @@ public class LanguageQuizDriver //implements Quizaroo
     if (chooseQuiz.equals("Spanish"))
     {
       aSpanishQuiz.quizQuestions();
-      /*ArrayList<String> userInput = aSpanishQuiz.inputAnswers();
-      ArrayList<String> correctAnswers = aSpanishQuiz.answerSheet();
-      userInput.removeAll(correctAnswers);
-      System.out.println("You have " + userInput.size() + " incorrect");
-      System.out.println(userInput); */
-
+      aSpanishQuiz.wordBox();
       aSpanishQuiz.score();
+      //aSpanishQuiz.testScore();
 
     }
     else if (chooseQuiz.equals("Italian"))
     {
       anItalianQuiz.quizQuestions();
+      anItalianQuiz.wordBox();
       anItalianQuiz.score();
 
     }
