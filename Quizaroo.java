@@ -4,7 +4,7 @@ A quiz game to help teach
 basic Spanish and Italian
 
 Coded by Janeen Soria
-Last modified May 23, 2018
+Last modified June 4, 2018
 */
 
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ public interface Quizaroo
 
   public ArrayList answerSheet();
 
-  public int score();
+  public double score();
 
   //public ArrayList corrections();
 

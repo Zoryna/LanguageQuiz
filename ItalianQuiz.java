@@ -3,7 +3,7 @@ A quiz game to help teach
 basic Spanish and Italian
 
 Coded by Janeen Soria
-Last modified May 23, 2018
+Last modified June 4, 2018
 */
 
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ public class ItalianQuiz implements Quizaroo
   public ArrayList quizQuestions()
   {
     ArrayList<String> questions = new ArrayList<String>(Arrays.asList(
-    "1. What is the verb that means 'to go?'", //index 0, question 1
+    "1. What is the verb that means 'to go?'",
     "2. What is the verb that means 'to be?'",
     "3. What is the verb that means 'to have'",
     "4. What is the verb that means 'to work?'",
@@ -31,23 +31,15 @@ public class ItalianQuiz implements Quizaroo
     for (String element : questions)
       System.out.println(element);
 
-    return questions;
+    return questions; //10 objects
   }
 
   public ArrayList wordBox ()
   {
     System.out.println("Here is your word box:");
     ArrayList<String> wordOptions = new ArrayList<String>(Arrays.asList(
-    "lavorare",
-    "bere",
-    "essere",
-    "fare",
-    "leggere",
-    "dire",
-    "mangiare",
-    "andare",
-    "volere",
-    "avere"));
+    "lavorare", "bere", "essere", "fare", "leggere",
+    "dire", "mangiare", "andare", "volere", "avere"));
 
     for (String element : wordOptions)
       System.out.println(element);
@@ -82,21 +74,24 @@ public class ItalianQuiz implements Quizaroo
     return answerKey;
   }
 
-  public int score()
+  public double score()
   {
     ArrayList<String> userInput = this.inputAnswers();
     ArrayList<String> correctAnswers = this.answerSheet();
+    double percentage = 0;
 
-    userInput.removeAll(correctAnswers); //keeps only the wrong answers (matched then correct, then removed)
-    //print statement for question number with answer
+    for (int i = 0; i <= userInput.size()-1; i++)
+    {
+      if (userInput.get(i).equals(correctAnswers.get(i)))
+        percentage++;
+    }
+    percentage = (percentage/10) * 100;
+    System.out.println("Your score is " + percentage);
 
-    System.out.println("You have " + userInput.size() + " incorrect");
-    System.out.println(userInput);
-
-    return userInput.size();
+    return percentage;
   }
 
-  /*public ArrayList corrections();
+  /*public ArrayList corrections(); //print question(s) that user got wrong to redo
   {
     return null;
   }
