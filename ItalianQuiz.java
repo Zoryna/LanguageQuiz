@@ -3,7 +3,7 @@ A quiz game to help teach
 basic Spanish and Italian
 
 Coded by Janeen Soria
-Last modified June 4, 2018
+Last modified June 5, 2018
 */
 
 import java.util.ArrayList;
@@ -13,6 +13,7 @@ import java.util.Scanner;
 public class ItalianQuiz implements Quizaroo
 {
   String element;
+  int score;
 
   public ArrayList quizQuestions()
   {
@@ -34,7 +35,7 @@ public class ItalianQuiz implements Quizaroo
     return questions; //10 objects
   }
 
-  public ArrayList wordBox ()
+  public ArrayList wordBox() //different from other quiz
   {
     System.out.println("Here is your word box:");
     ArrayList<String> wordOptions = new ArrayList<String>(Arrays.asList(
@@ -65,7 +66,7 @@ public class ItalianQuiz implements Quizaroo
     return answers;
   }
 
-  public ArrayList answerSheet()
+  public ArrayList answerSheet() //different from other quiz
   {
     ArrayList<String> answerKey = new ArrayList<String>(Arrays.asList(
     "andare", "essere", "avere", "lavorare", "mangiare",
@@ -74,29 +75,34 @@ public class ItalianQuiz implements Quizaroo
     return answerKey;
   }
 
-  public double score()
+  public ArrayList grade()
   {
     ArrayList<String> userInput = this.inputAnswers();
     ArrayList<String> correctAnswers = this.answerSheet();
-    double percentage = 0;
+    //ArrayList<String> theQuestions = this.quizQuestions();
+    ArrayList<Object> toCorrect = new ArrayList<Object>();
+    int score = 0;
+    int wrong = 0;
 
     for (int i = 0; i <= userInput.size()-1; i++)
     {
       if (userInput.get(i).equals(correctAnswers.get(i)))
-        percentage++;
+        score++;
+      else if (!(userInput.get(i).equals(correctAnswers.get(i))))
+      {
+        toCorrect.add(i); //stores the index of wrong answers
+      }
     }
-    percentage = (percentage/10) * 100;
-    System.out.println("Your score is " + percentage);
 
-    return percentage;
+    System.out.println("You have " + score + " out of 10 correct");
+    wrong = 10 - score;
+
+
+    //System.out.println(toCorrect);
+    return toCorrect;
   }
 
-  /*public ArrayList corrections(); //print question(s) that user got wrong to redo
-  {
-    return null;
-  }
-
-  public ArrayList retakeQuiz();
+  /*public ArrayList retakeQuiz();
   {
     return null;
   } */

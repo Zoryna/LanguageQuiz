@@ -19,9 +19,9 @@ public interface Quizaroo
 
   public ArrayList answerSheet();
 
-  public double score();
+  public ArrayList grade();
 
-  //public ArrayList corrections();
+  //public int score();
 
   //public ArrayList retakeQuiz(); //make it void?
 }
