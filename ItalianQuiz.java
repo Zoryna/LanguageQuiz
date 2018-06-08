@@ -32,7 +32,7 @@ public class ItalianQuiz implements Quizaroo
   "andare", "essere", "avere", "lavorare", "mangiare",
   "bere", "fare", "leggere", "dire", "volere"));
 
-  ArrayList<String> answers = new ArrayList<String>(); //testing
+  ArrayList<String> userAnswers = new ArrayList<String>(); //testing
 
   String element;
 
@@ -59,8 +59,8 @@ public class ItalianQuiz implements Quizaroo
     while(true)
     {
       choice = keyboard.nextLine().toLowerCase();
-      answers.add(choice);
-      if (answers.size() == 10)
+      userAnswers.add(choice);
+      if (userAnswers.size() == 10)
       break;
     }
   }
@@ -70,11 +70,11 @@ public class ItalianQuiz implements Quizaroo
     ArrayList<Object> toCorrect = new ArrayList<Object>();
     int score = 0;
 
-    for (int i = 0; i <= answers.size()-1; i++)
+    for (int i = 0; i <= userAnswers.size()-1; i++)
     {
-      if (answers.get(i).equals(answerKey.get(i)))
+      if (userAnswers.get(i).equals(answerKey.get(i)))
         score++;
-      else if (!(answers.get(i).equals(answerKey.get(i))))
+      else if (!(userAnswers.get(i).equals(answerKey.get(i))))
       {
         toCorrect.add(i); //stores the index of wrong answers
       }

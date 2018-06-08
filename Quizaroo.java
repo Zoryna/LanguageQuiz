@@ -17,7 +17,7 @@ public interface Quizaroo //turn into class and make quizzes extend?
 
   public void inputAnswers();
 
-  public ArrayList grade();
+  //public ArrayList grade();
 
   //public int corrections();
 

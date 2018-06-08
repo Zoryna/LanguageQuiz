@@ -32,7 +32,13 @@ public class SpanishQuiz implements Quizaroo
   "hacer", "comer", "tener", "beber", "trabajar",
   "ser", "querer", "decir", "leer", "ir"));
 
-  ArrayList<String> answers = new ArrayList<String>(); //testing
+  Scanner keyboard = new Scanner (System.in);
+
+  ArrayList<String> userAnswers = new ArrayList<String>(); //testing
+
+  int score; //make into double to make into percentage?
+
+  ArrayList<Object> toCorrect = new ArrayList<Object>(); //index of wrong answers, testing
 
 
   public void quizQuestions()
@@ -51,28 +57,27 @@ public class SpanishQuiz implements Quizaroo
   public void inputAnswers()
   {
     String choice;
-    Scanner keyboard = new Scanner (System.in);
 
     System.out.println("Please enter your answers by typing in each word. Press 'enter' after each answer:");
     while(true)
     {
       choice = keyboard.nextLine().toLowerCase();
-      answers.add(choice);
-      if (answers.size() == 10)
+      userAnswers.add(choice);
+      if (userAnswers.size() == 10)
       break;
     }
   }
 
-  public ArrayList grade()
+  public void grade()
   {
-    ArrayList<Object> toCorrect = new ArrayList<Object>();
-    int score = 0;
+    //ArrayList<Object> toCorrect = new ArrayList<Object>();
+    //int score = 0;
 
-    for (int i = 0; i <= answers.size()-1; i++)
+    for (int i = 0; i <= userAnswers.size()-1; i++)
     {
-      if (answers.get(i).equals(answerKey.get(i)))
+      if (userAnswers.get(i).equals(answerKey.get(i)))
         score++;
-      else if (!(answers.get(i).equals(answerKey.get(i))))
+      else if (!(userAnswers.get(i).equals(answerKey.get(i))))
       {
         toCorrect.add(i); //stores the index of wrong answers
       }
@@ -80,20 +85,31 @@ public class SpanishQuiz implements Quizaroo
 
     System.out.println("You have " + score + " out of 10 correct");
 
-
     System.out.println(toCorrect);
-
-    return toCorrect;
   }
 
-  /*public int corrections() //gives new score
+  public int corrections() //gives new score
   {
-    ArrayList<String> replacementAnswers = new ArrayList<String>();
-    System.out.println("testing: " + answers); //testing
+    String replacement;
+
+    System.out.println("before for loop" + userAnswers);
+    for (int i = 0; i <= userAnswers.size()-1; i++)
+    {
+      if (!(userAnswers.get(i).equals(answerKey.get(i))))
+      {
+        userAnswers.remove(i);
+        System.out.println("Replace your incorrect answer with a different answer:");
+        replacement = keyboard.nextLine().toLowerCase();
+        userAnswers.add(replacement);
+      }
+
+    }
 
 
+    System.out.println("after for loop: " + userAnswers); //testing
 
-    return 0;
+
+    return score; //return 0;
   }
 
 
