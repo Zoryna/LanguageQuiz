@@ -3,7 +3,7 @@ A quiz game to help teach
 basic Spanish and Italian
 
 Coded by Janeen Soria
-Last modified June 5, 2018
+Last modified June 7, 2018
 */
 
 import java.util.ArrayList;
@@ -12,45 +12,46 @@ import java.util.Scanner;
 
 public class ItalianQuiz implements Quizaroo
 {
+  ArrayList<String> questions = new ArrayList<String>(Arrays.asList(
+  "1. What is the verb that means 'to go?'", //index 0
+  "2. What is the verb that means 'to be?'",
+  "3. What is the verb that means 'to have'",
+  "4. What is the verb that means 'to work?'",
+  "5. What is the verb that means 'to eat?'" ,
+  "6. What is the verb that means 'to drink?'",
+  "7. What is the verb that means 'to do?'",
+  "8. What is the verb that means 'to read?'",
+  "9. What is the verb that means 'to say?'",
+  "10. What is the verb that means 'to want?'"));
+
+  ArrayList<String> wordOptions = new ArrayList<String>(Arrays.asList( //answer sheet, different from other quiz
+  "lavorare", "bere", "essere", "fare", "leggere",
+  "dire", "mangiare", "andare", "volere", "avere"));
+
+  ArrayList<String> answerKey = new ArrayList<String>(Arrays.asList( //word box, different from other quiz
+  "andare", "essere", "avere", "lavorare", "mangiare",
+  "bere", "fare", "leggere", "dire", "volere"));
+
+  ArrayList<String> answers = new ArrayList<String>(); //testing
+
   String element;
-  int score;
 
-  public ArrayList quizQuestions()
+
+  public void quizQuestions()
   {
-    ArrayList<String> questions = new ArrayList<String>(Arrays.asList(
-    "1. What is the verb that means 'to go?'",
-    "2. What is the verb that means 'to be?'",
-    "3. What is the verb that means 'to have'",
-    "4. What is the verb that means 'to work?'",
-    "5. What is the verb that means 'to eat?'" ,
-    "6. What is the verb that means 'to drink?'",
-    "7. What is the verb that means 'to do?'",
-    "8. What is the verb that means 'to read?'",
-    "9. What is the verb that means 'to say?'",
-    "10. What is the verb that means 'to want?'")); //index 9, question 10
-
     for (String element : questions)
       System.out.println(element);
-
-    return questions; //10 objects
   }
 
-  public ArrayList wordBox() //different from other quiz
+  public void wordBox()
   {
     System.out.println("Here is your word box:");
-    ArrayList<String> wordOptions = new ArrayList<String>(Arrays.asList(
-    "lavorare", "bere", "essere", "fare", "leggere",
-    "dire", "mangiare", "andare", "volere", "avere"));
-
     for (String element : wordOptions)
       System.out.println(element);
-
-    return wordOptions;
   }
 
-  public ArrayList inputAnswers()
+  public void inputAnswers()
   {
-    ArrayList<String> answers = new ArrayList<String>();
     String choice;
     Scanner keyboard = new Scanner (System.in);
 
@@ -62,44 +63,37 @@ public class ItalianQuiz implements Quizaroo
       if (answers.size() == 10)
       break;
     }
-
-    return answers;
-  }
-
-  public ArrayList answerSheet() //different from other quiz
-  {
-    ArrayList<String> answerKey = new ArrayList<String>(Arrays.asList(
-    "andare", "essere", "avere", "lavorare", "mangiare",
-    "bere", "fare", "leggere", "dire", "volere"));
-
-    return answerKey;
   }
 
   public ArrayList grade()
   {
-    ArrayList<String> userInput = this.inputAnswers();
-    ArrayList<String> correctAnswers = this.answerSheet();
-    //ArrayList<String> theQuestions = this.quizQuestions();
     ArrayList<Object> toCorrect = new ArrayList<Object>();
     int score = 0;
-    int wrong = 0;
 
-    for (int i = 0; i <= userInput.size()-1; i++)
+    for (int i = 0; i <= answers.size()-1; i++)
     {
-      if (userInput.get(i).equals(correctAnswers.get(i)))
+      if (answers.get(i).equals(answerKey.get(i)))
         score++;
-      else if (!(userInput.get(i).equals(correctAnswers.get(i))))
+      else if (!(answers.get(i).equals(answerKey.get(i))))
       {
         toCorrect.add(i); //stores the index of wrong answers
       }
     }
 
     System.out.println("You have " + score + " out of 10 correct");
-    wrong = 10 - score;
 
 
-    //System.out.println(toCorrect);
+    System.out.println(toCorrect);
+
     return toCorrect;
+  }
+
+  /*public int corrections() //gives new score
+
+  {
+
+
+
   }
 
   /*public ArrayList retakeQuiz();

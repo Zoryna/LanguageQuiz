@@ -4,24 +4,22 @@ A quiz game to help teach
 basic Spanish and Italian
 
 Coded by Janeen Soria
-Last modified June 4, 2018
+Last modified June 7, 2018
 */
 
 import java.util.ArrayList;
 
-public interface Quizaroo
+public interface Quizaroo //turn into class and make quizzes extend?
 {
-  public ArrayList quizQuestions();
+  public void quizQuestions();
 
-  public ArrayList wordBox();
+  public void wordBox();
 
-  public ArrayList inputAnswers();
-
-  public ArrayList answerSheet();
+  public void inputAnswers();
 
   public ArrayList grade();
 
-  //public int score();
+  //public int corrections();
 
-  //public ArrayList retakeQuiz(); //make it void?
+  //public ArrayList retakeQuiz(); //retake quiz or take other, make it void?
 }
