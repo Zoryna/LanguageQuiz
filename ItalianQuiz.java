@@ -24,17 +24,21 @@ public class ItalianQuiz implements Quizaroo
   "9. What is the verb that means 'to say?'",
   "10. What is the verb that means 'to want?'"));
 
-  ArrayList<String> wordOptions = new ArrayList<String>(Arrays.asList( //answer sheet, different from other quiz
-  "lavorare", "bere", "essere", "fare", "leggere",
-  "dire", "mangiare", "andare", "volere", "avere"));
-
   ArrayList<String> answerKey = new ArrayList<String>(Arrays.asList( //word box, different from other quiz
   "andare", "essere", "avere", "lavorare", "mangiare",
   "bere", "fare", "leggere", "dire", "volere"));
 
-  ArrayList<String> userAnswers = new ArrayList<String>(); //testing
+  ArrayList<String> wordOptions = new ArrayList<String>(Arrays.asList( //answer sheet, different from other quiz
+  "lavorare", "bere", "essere", "fare", "leggere",
+  "dire", "mangiare", "andare", "volere", "avere"));
 
-  String element;
+  Scanner keyboard = new Scanner (System.in);
+
+  ArrayList<String> userAnswers = new ArrayList<String>();
+
+  int score; //make into double to make into percentage?
+
+  ArrayList<Object> toCorrect = new ArrayList<Object>(); //index of wrong answers, testing
 
 
   public void quizQuestions()
@@ -65,10 +69,10 @@ public class ItalianQuiz implements Quizaroo
     }
   }
 
-  public ArrayList grade()
+  public int grade()
   {
-    ArrayList<Object> toCorrect = new ArrayList<Object>();
-    int score = 0;
+    //ArrayList<Object> toCorrect = new ArrayList<Object>();
+    //int score = 0;
 
     for (int i = 0; i <= userAnswers.size()-1; i++)
     {
@@ -82,18 +86,31 @@ public class ItalianQuiz implements Quizaroo
 
     System.out.println("You have " + score + " out of 10 correct");
 
+    System.out.println("indexes of answers to correct: " + toCorrect);
 
-    System.out.println(toCorrect);
-
-    return toCorrect;
+    return score;
   }
 
-  /*public int corrections() //gives new score
-
+  public int corrections() //gives new score
   {
+    String replacement;
+
+    System.out.println("before for loop" + userAnswers);
+    for (int i = 0; i <= userAnswers.size()-1; i++)
+    {
+      if (!(userAnswers.get(i).equals(answerKey.get(i))))
+      {
+        System.out.println("Replace your incorrect answer with a different answer:");
+        replacement = keyboard.nextLine().toLowerCase();
+        userAnswers.set(i, replacement);
+      }
+    }
 
 
+    System.out.println("after for loop: " + userAnswers); //testing
 
+
+    return score;
   }
 
   /*public ArrayList retakeQuiz();

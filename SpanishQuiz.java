@@ -34,7 +34,7 @@ public class SpanishQuiz implements Quizaroo
 
   Scanner keyboard = new Scanner (System.in);
 
-  ArrayList<String> userAnswers = new ArrayList<String>(); //testing
+  ArrayList<String> userAnswers = new ArrayList<String>();
 
   int score; //make into double to make into percentage?
 
@@ -68,10 +68,10 @@ public class SpanishQuiz implements Quizaroo
     }
   }
 
-  public void grade()
+  public int grade()
   {
     //ArrayList<Object> toCorrect = new ArrayList<Object>();
-    //int score = 0;
+    int score = 0;
 
     for (int i = 0; i <= userAnswers.size()-1; i++)
     {
@@ -85,28 +85,37 @@ public class SpanishQuiz implements Quizaroo
 
     System.out.println("You have " + score + " out of 10 correct");
 
-    System.out.println(toCorrect);
+    //System.out.println("indexes of answers to correct: " + toCorrect);
+
+    return score;
   }
 
   public int corrections() //gives new score
   {
     String replacement;
 
+    System.out.println("You had fewer than 6 right. Correct your wrong answers and we will give you your new score:");
+
     System.out.println("before for loop" + userAnswers);
+
     for (int i = 0; i <= userAnswers.size()-1; i++)
     {
-      if (!(userAnswers.get(i).equals(answerKey.get(i))))
+      if(userAnswers.get(i).equals(answerKey.get(i)))
       {
-        userAnswers.remove(i);
+        questions.remove(i); //fix
+      }
+      if (!(userAnswers.get(i).equals(answerKey.get(i)))) //not equal
+      {
+        //System.out.println("Correct question: " + question.get(i));
         System.out.println("Replace your incorrect answer with a different answer:");
         replacement = keyboard.nextLine().toLowerCase();
-        userAnswers.add(replacement);
+        userAnswers.set(i, replacement);
       }
-
     }
 
 
     System.out.println("after for loop: " + userAnswers); //testing
+    System.out.println(questions);
 
 
     return score; //return 0;

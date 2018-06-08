@@ -27,14 +27,15 @@ public class LanguageQuizDriver //make a while loop to retake quizzes?
       aSpanishQuiz.inputAnswers();
       aSpanishQuiz.grade();
       aSpanishQuiz.corrections();
+      aSpanishQuiz.grade(); //testing
 
     }
     else if (chooseQuiz.equals("Italian"))
     {
       anItalianQuiz.quizQuestions();
       anItalianQuiz.wordBox();
-      //anItalianQuiz.grade();
-      //anItalianQuiz.corretions();
+      anItalianQuiz.grade();
+      anItalianQuiz.corrections();
 
     }
 

@@ -17,9 +17,9 @@ public interface Quizaroo //turn into class and make quizzes extend?
 
   public void inputAnswers();
 
-  //public ArrayList grade();
+  public int grade();
 
-  //public int corrections();
+  public int corrections();
 
   //public ArrayList retakeQuiz(); //retake quiz or take other, make it void?
 }
