@@ -4,7 +4,7 @@ A quiz game to help teach
 basic Spanish and Italian
 
 Coded by Janeen Soria
-Last modified June 7, 2018
+Last modified June 8, 2018
 */
 
 import java.util.Scanner;
@@ -22,20 +22,22 @@ public class LanguageQuizDriver //make a while loop to retake quizzes?
     chooseQuiz = keyboard.nextLine();
     if (chooseQuiz.equals("Spanish"))
     {
-      aSpanishQuiz.quizQuestions();
-      aSpanishQuiz.wordBox();
+      aSpanishQuiz.questionsAndOptions();
       aSpanishQuiz.inputAnswers();
       aSpanishQuiz.grade();
       aSpanishQuiz.corrections();
-      aSpanishQuiz.grade(); //testing
+
+      aSpanishQuiz.grade();
 
     }
     else if (chooseQuiz.equals("Italian"))
     {
-      anItalianQuiz.quizQuestions();
-      anItalianQuiz.wordBox();
+      anItalianQuiz.questionsAndOptions();
+      anItalianQuiz.inputAnswers();
       anItalianQuiz.grade();
       anItalianQuiz.corrections();
+      
+      anItalianQuiz.grade();
 
     }
 

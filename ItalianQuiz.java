@@ -3,7 +3,7 @@ A quiz game to help teach
 basic Spanish and Italian
 
 Coded by Janeen Soria
-Last modified June 7, 2018
+Last modified June 8, 2018
 */
 
 import java.util.ArrayList;
@@ -38,20 +38,16 @@ public class ItalianQuiz implements Quizaroo
 
   int score; //make into double to make into percentage?
 
-  ArrayList<Object> toCorrect = new ArrayList<Object>(); //index of wrong answers, testing
 
-
-  public void quizQuestions()
+  public void questionsAndOptions()
   {
     for (String element : questions)
+    {
       System.out.println(element);
-  }
+    }
 
-  public void wordBox()
-  {
     System.out.println("Here is your word box:");
-    for (String element : wordOptions)
-      System.out.println(element);
+    System.out.println(wordOptions);
   }
 
   public void inputAnswers()
@@ -71,22 +67,12 @@ public class ItalianQuiz implements Quizaroo
 
   public int grade()
   {
-    //ArrayList<Object> toCorrect = new ArrayList<Object>();
-    //int score = 0;
-
     for (int i = 0; i <= userAnswers.size()-1; i++)
     {
       if (userAnswers.get(i).equals(answerKey.get(i)))
         score++;
-      else if (!(userAnswers.get(i).equals(answerKey.get(i))))
-      {
-        toCorrect.add(i); //stores the index of wrong answers
-      }
     }
-
     System.out.println("You have " + score + " out of 10 correct");
-
-    System.out.println("indexes of answers to correct: " + toCorrect);
 
     return score;
   }
@@ -95,36 +81,20 @@ public class ItalianQuiz implements Quizaroo
   {
     String replacement;
 
-    System.out.println("before for loop" + userAnswers);
+    System.out.println("You had fewer than 6 right. Correct your wrong answers and we will give you your new score. Here is your word box again:");
+    System.out.println(wordOptions);
+
     for (int i = 0; i <= userAnswers.size()-1; i++)
     {
       if (!(userAnswers.get(i).equals(answerKey.get(i))))
       {
+        System.out.println("You got this question incorrect: " + questions.get(i));
         System.out.println("Replace your incorrect answer with a different answer:");
         replacement = keyboard.nextLine().toLowerCase();
         userAnswers.set(i, replacement);
       }
     }
 
-
-    System.out.println("after for loop: " + userAnswers); //testing
-
-
     return score;
   }
-
-  /*public ArrayList retakeQuiz();
-  {
-    return null;
-  } */
-
-
-
-
-
-
-
-
-
-
 }
