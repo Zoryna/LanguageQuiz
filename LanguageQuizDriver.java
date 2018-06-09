@@ -15,7 +15,7 @@ public class LanguageQuizDriver //make a while loop to retake quizzes?
   {
     SpanishQuiz aSpanishQuiz = new SpanishQuiz();
     ItalianQuiz anItalianQuiz = new ItalianQuiz();
-    String chooseQuiz;
+    String chooseQuiz, redo;
     Scanner keyboard = new Scanner (System.in);
 
     System.out.println("Do you want to take the Spanish or Italian quiz? Type 'Spanish' or 'Italian'");
@@ -26,20 +26,20 @@ public class LanguageQuizDriver //make a while loop to retake quizzes?
       aSpanishQuiz.inputAnswers();
       if (aSpanishQuiz.grade() < 6)
       {
-        System.out.println("working");
         aSpanishQuiz.corrections();
-        //aSpanishQuiz.grade();
       }
+
 
     }
     else if (chooseQuiz.equals("Italian"))
     {
       anItalianQuiz.questionsAndOptions();
       anItalianQuiz.inputAnswers();
-      anItalianQuiz.grade();
-      anItalianQuiz.corrections();
+      if (anItalianQuiz.grade() < 6)
+      {
+        anItalianQuiz.corrections();
+      }
 
-      anItalianQuiz.grade();
 
     }
 

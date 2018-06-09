@@ -45,7 +45,6 @@ public class ItalianQuiz implements Quizaroo
     {
       System.out.println(element);
     }
-
     System.out.println("Here is your word box:");
     System.out.println(wordOptions);
   }
@@ -72,7 +71,7 @@ public class ItalianQuiz implements Quizaroo
       if (userAnswers.get(i).equals(answerKey.get(i)))
         score++;
     }
-    System.out.println("You have " + score + " out of 10 correct");
+    System.out.println("You have " + score + "/10 correct");
 
     return score;
   }
@@ -80,6 +79,7 @@ public class ItalianQuiz implements Quizaroo
   public int corrections() //gives new score
   {
     String replacement;
+    int newScore = 0;
 
     System.out.println("You had fewer than 6 right. Correct your wrong answers and we will give you your new score. Here is your word box again:");
     System.out.println(wordOptions);
@@ -93,8 +93,12 @@ public class ItalianQuiz implements Quizaroo
         replacement = keyboard.nextLine().toLowerCase();
         userAnswers.set(i, replacement);
       }
+      //then regrades with new answers
+      if (userAnswers.get(i).equals(answerKey.get(i)))
+        newScore++;
     }
+    System.out.println("You have " + newScore + "/10 correct");
 
-    return score;
+    return newScore;
   }
 }

@@ -7,8 +7,6 @@ Coded by Janeen Soria
 Last modified June 8, 2018
 */
 
-import java.util.ArrayList;
-
 public interface Quizaroo //turn into class and make quizzes extend?
 {
   public void questionsAndOptions();
