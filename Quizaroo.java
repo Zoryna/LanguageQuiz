@@ -7,7 +7,7 @@ Coded by Janeen Soria
 Last modified June 8, 2018
 */
 
-public interface Quizaroo //turn into class and make quizzes extend?
+public class Quizaroo
 {
   public void questionsAndOptions();
 

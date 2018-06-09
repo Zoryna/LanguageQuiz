@@ -33,10 +33,8 @@ public class ItalianQuiz implements Quizaroo
   "dire", "mangiare", "andare", "volere", "avere"));
 
   Scanner keyboard = new Scanner (System.in);
-
   ArrayList<String> userAnswers = new ArrayList<String>();
-
-  int score; //make into double to make into percentage?
+  int score;
 
 
   public void questionsAndOptions()
