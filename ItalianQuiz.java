@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class ItalianQuiz implements Quizaroo
 {
   ArrayList<String> questions = new ArrayList<String>(Arrays.asList(
-  "1. What is the verb that means 'to go?'", //index 0
+  "1. What is the verb that means 'to go?'",
   "2. What is the verb that means 'to be?'",
   "3. What is the verb that means 'to have'",
   "4. What is the verb that means 'to work?'",
