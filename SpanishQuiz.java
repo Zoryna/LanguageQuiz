@@ -3,7 +3,7 @@ A quiz game to help teach
 basic Spanish and Italian
 
 Coded by Janeen Soria
-Last modified June 8, 2018
+Last modified June 9, 2018
 */
 
 import java.util.ArrayList;
@@ -56,7 +56,7 @@ public class SpanishQuiz implements Quizaroo
       choice = keyboard.nextLine().toLowerCase();
       userAnswers.add(choice);
       if (userAnswers.size() == 10)
-      break;
+        break;
     }
   }
 
@@ -72,7 +72,7 @@ public class SpanishQuiz implements Quizaroo
     return score;
   }
 
-  public int corrections() //gives new score
+  public int corrections()
   {
     String replacement;
     int newScore = 0;

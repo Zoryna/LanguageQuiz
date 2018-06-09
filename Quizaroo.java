@@ -4,10 +4,10 @@ A quiz game to help teach
 basic Spanish and Italian
 
 Coded by Janeen Soria
-Last modified June 8, 2018
+Last modified June 9, 2018
 */
 
-public class Quizaroo
+public interface Quizaroo
 {
   public void questionsAndOptions();
 
