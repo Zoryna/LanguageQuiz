@@ -2,7 +2,6 @@
 The driver class for LanguageQuiz class
 A quiz game to help teach
 basic Spanish and Italian
-
 Coded by Janeen Soria
 Last modified June 9, 2018
 */
@@ -24,19 +23,25 @@ public class LanguageQuizDriver
       chooseQuiz = keyboard.nextLine().toLowerCase();
 
       if (chooseQuiz.equals("done"))
-        break;
+        {
+          System.out.println("Ok :(");
+          break;
+        }
+
 
       if (chooseQuiz.equals("spanish"))
       {
         aSpanishQuiz.questionsAndOptions();
         aSpanishQuiz.inputAnswers();
-        if (aSpanishQuiz.grade() < 7)
+        if (aSpanishQuiz.grade() < 7) //fix scores?
         {
           aSpanishQuiz.corrections();
           System.out.println("Type 'done' if you want to stop taking quizzes, or enter any key to continue:");
           redo = keyboard.nextLine().toLowerCase();
           if (redo.equals("done"))
             break;
+          else
+            System.out.println("testing");
         }
         else //fix
         {
@@ -52,7 +57,7 @@ public class LanguageQuizDriver
       {
         anItalianQuiz.questionsAndOptions();
         anItalianQuiz.inputAnswers();
-        if (anItalianQuiz.grade() < 7)
+        if (anItalianQuiz.grade() < 7) //fix scores?
         {
           anItalianQuiz.corrections();
           System.out.println("Type 'done' if you want to stop taking quizzes, or enter any key to continue:");
@@ -69,9 +74,6 @@ public class LanguageQuizDriver
             break;
         }
       }
-
-      else
-        System.out.println("Ok :(");
     }
   }
 }

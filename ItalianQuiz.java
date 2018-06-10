@@ -36,7 +36,6 @@ public class ItalianQuiz implements Quizaroo
   ArrayList<String> userAnswers = new ArrayList<String>();
   int score;
 
-
   public void questionsAndOptions()
   {
     for (String element : questions)
