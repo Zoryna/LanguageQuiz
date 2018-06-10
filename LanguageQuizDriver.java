@@ -14,65 +14,42 @@ public class LanguageQuizDriver
   {
     SpanishQuiz aSpanishQuiz = new SpanishQuiz();
     ItalianQuiz anItalianQuiz = new ItalianQuiz();
-    String chooseQuiz, redo;
+    String chooseQuiz; //, redo;
     Scanner keyboard = new Scanner (System.in);
 
-    while (true)
-    {
-      System.out.println("Do you want to take the Spanish or Italian quiz? Type 'Spanish' or 'Italian' or type 'done' to stop taking quizzes:");
-      chooseQuiz = keyboard.nextLine().toLowerCase();
+    System.out.println("Do you want to take the Spanish or Italian quiz? Type 'Spanish' or 'Italian' or type 'done' to stop taking quizzes:");
+    chooseQuiz = keyboard.nextLine().toLowerCase();
 
-      if (chooseQuiz.equals("done"))
-        {
-          System.out.println("Ok :(");
-          break;
-        }
-
-
-      if (chooseQuiz.equals("spanish"))
+    if (chooseQuiz.equals("done"))
       {
-        aSpanishQuiz.questionsAndOptions();
-        aSpanishQuiz.inputAnswers();
-        if (aSpanishQuiz.grade() < 7) //fix scores?
-        {
-          aSpanishQuiz.corrections();
-          System.out.println("Type 'done' if you want to stop taking quizzes, or enter any key to continue:");
-          redo = keyboard.nextLine().toLowerCase();
-          if (redo.equals("done"))
-            break;
-          else
-            System.out.println("testing");
-        }
-        else //fix
-        {
-          System.out.println("¡Muy bien! You passed!");
-          System.out.println("Type 'done' if you want to stop taking quizzes, or enter any key to continue:");
-          redo = keyboard.nextLine().toLowerCase();
-          if (redo.equals("done"))
-            break;
-        }
+        System.out.println("Ok :(");
       }
 
-      else if (chooseQuiz.equals("italian"))
+    if (chooseQuiz.equals("spanish"))
+    {
+      aSpanishQuiz.questionsAndOptions();
+      aSpanishQuiz.inputAnswers();
+      if (aSpanishQuiz.grade() < 7) //fix scores in grading?
       {
-        anItalianQuiz.questionsAndOptions();
-        anItalianQuiz.inputAnswers();
-        if (anItalianQuiz.grade() < 7) //fix scores?
-        {
-          anItalianQuiz.corrections();
-          System.out.println("Type 'done' if you want to stop taking quizzes, or enter any key to continue:");
-          redo = keyboard.nextLine().toLowerCase();
-          if (redo.equals("done"))
-            break;
-        }
-        else //fix
-        {
-          System.out.println("Ottimo lavoro! You passed!");
-          System.out.println("Type 'done' if you want to stop taking quizzes, or enter any key to continue:");
-          redo = keyboard.nextLine().toLowerCase();
-          if (redo.equals("done"))
-            break;
-        }
+        aSpanishQuiz.corrections();
+      }
+      else //fix
+      {
+        System.out.println("¡Muy bien! You passed!");
+      }
+    }
+
+    else if (chooseQuiz.equals("italian"))
+    {
+      anItalianQuiz.questionsAndOptions();
+      anItalianQuiz.inputAnswers();
+      if (anItalianQuiz.grade() < 7) //fix scores?
+      {
+        anItalianQuiz.corrections();
+      }
+      else //fix
+      {
+        System.out.println("Ottimo lavoro! You passed!");
       }
     }
   }
